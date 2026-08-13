@@ -7,6 +7,7 @@
       name="description"
       content="GETSPD — the official memory of your surf session. Wave tracking, GPS maps, and performance analytics."
     />
+    <meta name="robots" content="noindex, nofollow" />
     <title>GETSPD — Surf smarter</title>
     <link rel="icon" type="image/png" href="assets/brand/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,7 +18,32 @@
     />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
-  <body>
+  <body class="is-locked">
+    <div class="auth-gate" id="auth-gate">
+      <form class="auth-card" id="auth-form" autocomplete="on">
+        <img class="auth-logo" src="assets/brand/logo-getspd.png" alt="GETSPD" width="148" height="40" />
+        <h1>Private preview</h1>
+        <p>Enter your credentials to view this site.</p>
+
+        <label class="sr-only" for="auth-user">Username</label>
+        <input id="auth-user" name="username" type="text" autocomplete="username" placeholder="Username" required />
+
+        <label class="sr-only" for="auth-pass">Password</label>
+        <input
+          id="auth-pass"
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="Password"
+          required
+        />
+
+        <button class="btn btn-primary" type="submit">Enter</button>
+        <p class="auth-error" id="auth-error" hidden>Invalid username or password.</p>
+      </form>
+    </div>
+
+    <div class="site-shell" id="site-shell">
     <header class="site-header">
       <a class="brand" href="#home" aria-label="GETSPD home">
         <img src="assets/brand/logo-getspd.png" alt="GETSPD" width="148" height="40" />
@@ -352,7 +378,9 @@
         <button class="btn btn-primary" type="button" data-close-coming-soon>Got it</button>
       </div>
     </div>
+    </div>
 
+    <script src="js/auth.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
