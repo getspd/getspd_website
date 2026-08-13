@@ -47,21 +47,22 @@ body {
 body.is-locked {
   overflow: hidden;
   background: #000;
+  height: 100%;
 }
 
 body.is-locked .site-shell {
-  visibility: hidden;
-  pointer-events: none;
-  height: 0;
-  overflow: hidden;
+  display: none !important;
 }
 
 .auth-gate {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 2147483646;
   display: grid;
   place-items: center;
+  width: 100vw;
+  height: 100vh;
+  min-height: 100dvh;
   padding: 1.25rem;
   background: #000;
 }

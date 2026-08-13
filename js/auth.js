@@ -19,12 +19,23 @@
 
   const unlock = () => {
     document.body.classList.remove("is-locked");
-    if (gate) gate.hidden = true;
+    if (gate) {
+      gate.hidden = true;
+      gate.setAttribute("aria-hidden", "true");
+    }
+    const shell = document.getElementById("site-shell");
+    if (shell) shell.removeAttribute("aria-hidden");
+    window.scrollTo(0, 0);
   };
 
   const lock = () => {
     document.body.classList.add("is-locked");
-    if (gate) gate.hidden = false;
+    if (gate) {
+      gate.hidden = false;
+      gate.removeAttribute("aria-hidden");
+    }
+    const shell = document.getElementById("site-shell");
+    if (shell) shell.setAttribute("aria-hidden", "true");
   };
 
   if (sessionStorage.getItem(SESSION_KEY) === AUTH_HASH) {
